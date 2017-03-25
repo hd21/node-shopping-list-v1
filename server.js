@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const { ShoppingList } = require('./models');
+const { Recipes } = require('./models');
 
 const jsonParser = bodyParser.json();
 const app = express();
@@ -24,8 +25,7 @@ app.get('/shopping-list', (req, res) => {
 });
 
 Recipes.create('chocolate milk', ['cocoa', 'milk', 'sugar']);
-Recipes.create('green goddess smoothie', ['spinach', 'Greek yogurt', 'almond milk', 'mango', 'banana', 'almond butter']);
-Recipes.create('omelette', ['eggs', 'milk', 'spinach']);
+Recipes.create('poke', ['ahi tuna', 'sesame oil', 'soy sauce', 'mixed greens', 'onions', 'avocado', 'sesame seeds']);
 
 app.get('/recipes', (req, res) => {
     res.json(Recipes.get());
